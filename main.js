@@ -104,13 +104,25 @@ let areaCv=document.getElementById('area-cv')
 let resumeButton =document.getElementById('resume-button');
 
 /*html2pdf option */
+// let opt = {
+//     margin:       0,
+//     filename:     'myResume.pdf',
+//     image:        { type: 'jpeg', quality: 0.98 },
+//     html2canvas:  { scale: 4 },
+//     jsPDF:        {  format: 'A4', orientation: 'portrait' }
+//   };
+
+
 let opt = {
-    margin:       0,
+    margin:       [10, 10, 10, 10],  // Adjust margins as needed
     filename:     'myResume.pdf',
     image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 4 },
-    jsPDF:        {  format: 'A4', orientation: 'portrait' }
-  };
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { format: 'A4', orientation: 'portrait', unit: 'mm' },
+    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }  // Avoid breaking in certain elements, use CSS page-break
+};
+
+
 
 
 /* function to call areaCv and html2pdf option*/
